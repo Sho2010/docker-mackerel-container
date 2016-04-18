@@ -1,0 +1,11 @@
+mackerel-agent:
+  image: 'mackerel/mackerel-agent'
+  environment:
+    - apikey=PLEASE_INPUT_YOUR_KEY
+    - opts=-v
+    - enable_docker_plugin=true
+  volumes:
+    - /var/run/docker.sock 
+    - /var/lib/mackerel-agent
+    - /proc/mounts:/host/proc/mounts:ro
+    - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
